@@ -143,7 +143,7 @@ function generateHTML(teamMembers) {
             <h1>Team Profile</h1>
         </header>
         <!-- Profile Cards-->
-        <div class="container mx-auto p-24 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8" id="teamMembers">`
+        <div class="container mx-auto p-24 grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-8" id="teamMembers">`
 
     teamMembers.forEach(emp => {
         let card = ""
@@ -154,7 +154,7 @@ function generateHTML(teamMembers) {
             <div class="p-10">
                 <p>ID: ${emp.id}</p>
                 <p class="mt-3">Email: ${emp.email}</p>
-                <p class="mt-3">Office No.: ${emp.officeNumber}</p>
+                <p class="mt-3">Office No.: ${emp.getOfficeNumber()}</p>
             </div>
         </div>`
         } else if (emp.getRole() === 'Engineer') {
@@ -163,8 +163,8 @@ function generateHTML(teamMembers) {
             <header class="bg-red-400 pb-3 px-8 text-xl text-white font-bold"><span class="material-icons-outlined">build</span> ${emp.getRole()}</header>
             <div class="p-10">
                 <p>ID: ${emp.id}</p>
-                <p class="mt-3">Email: ${emp.email}</p>
-                <p class="mt-3">Github: ${emp.github}</p>
+                <p class="mt-3 mb-3">Email: ${emp.email}</p>                       
+                <p class="inline">Github: </p><a class="inline text-blue-500" href="https://github.com/${emp.github}">${emp.getGithub()}</a>
             </div>
         </div>`
 
@@ -175,7 +175,7 @@ function generateHTML(teamMembers) {
             <div class="p-10">
                 <p>ID: ${emp.id}</p>
                 <p class="mt-3">Email: ${emp.email}</p>
-                <p class="mt-3">School: ${emp.school}</p>
+                <p class="mt-3">School: ${emp.getSchool()}</p>
             </div>
         </div>`
         }
